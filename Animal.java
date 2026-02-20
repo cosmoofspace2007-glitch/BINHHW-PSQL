@@ -1,24 +1,20 @@
-public class Animal {
-    String name;
-    int age;
+package Baiseasion10;
 
-    void makeSound() {
-        System.out.println("Making Sound");
+public class Animal
+{
+   protected String name;
+
+   public void makeSound()
+    {
+        System.out.println("Some animal sound");
     }
 }
 
-class Cat extends Animal {
-    String breed;
-    void meow() {
-        System.out.println("Making Sound");
+class Dog extends Animal
+{
+    public Dog(String name)
+    {
+        this.name = name;
     }
 }
-
-class Dog extends Animal {
-    String color;
-    void bark() {
-        System.out.println("Making Sound");
-    }
-}
-
 
