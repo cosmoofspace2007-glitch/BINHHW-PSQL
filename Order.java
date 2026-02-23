@@ -1,11 +1,11 @@
 package Baiseasion13;
 
-public class Student
+public class Order
 {
     private String name;
     private int id;
 
-    public Student(String name, int id)
+    public Order(String name, int id)
     {
         this.name = name;
         this.id = id;
@@ -15,6 +15,7 @@ public class Student
     {
         return name;
     }
+
     public void setName(String name)
     {
         this.name = name;
@@ -24,13 +25,15 @@ public class Student
     {
         return id;
     }
+
     public void setId(int id)
     {
         this.id = id;
     }
+
     @Override
     public String toString()
     {
-        return "Student{" + "name=" + name + ", id=" + id + '}';
+        return "Tên khách hàng" + name + ',' + "Mã khách hàng" + id ;
     }
 }

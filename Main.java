@@ -1,108 +1,271 @@
-package Baiseasion11;
+package Baiseasion13;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.Scanner;
 
 public class Main
-{ public  static void main(String[] args)
+{
+    public static void main(String[] args)
     {
-        Scanner sc=new Scanner(System.in);
-
-//        Shape[] shapes=new Shape[2];
+        Scanner scan = new Scanner(System.in);
+          StudentManage sm = new StudentManage();
+//        OrderManger ordermanger = new OrderManger();
+//        InvoiceManager invoiceManager = new InvoiceManager();
+//        AttendanceManager manager = new AttendanceManager();
+//        LinkedList<User> users = new LinkedList<User>();
 //
-//        shapes[0]=new Circle("Circle1", 3.4);
-//        shapes[1]=new Rectangle("Rectagle1",34,25);
-//
-//        for(Shape s:shapes)
+//        while(true)
 //        {
-//            s.displayInfo();
-//            System.out.println("Area  "+s.getArea());
-//            System.out.println("Perimeter"+s.getPerimeter());
+//        System.out.println("***************** MENU Quản Lý Người Dùng *****************\n"+
+//                "1.Thêm người dùng\n"+
+//                "2. Xoá người dùng\n"+
+//                "3.Hiển thị danh sách người dùng\n"+
+//                "4.Thoát");
+//        System.out.println("Nhập vào lựa chọn của bạn");
 //
-//            Drawable drawable = (Drawable)s;
-//            drawable.draw();
+//        int choice = scan.nextInt();
+//        scan.nextLine();
+//
+//        switch(choice)
+//        {
+//            case 1:
+//                System.out.println("Nhập vào tên người dùng");
+//                String name = scan.nextLine();
+//                System.out.println("Nhập vào email người dùng");
+//                String email = scan.nextLine();
+//                System.out.println("Nhập vào số điện thoại người dùng");
+//                String number = scan.next();
+//
+//                users.add(new User(name, email, number));
+//                break;
+//
+//            case 2:
+//                System.out.println("Nhập vào email bạn muốn xoá:");
+//                String e = scan.nextLine();
+//
+//                boolean remove = users.removeIf(user -> user.getEmail().equalsIgnoreCase(e));
+//
+//                if (remove) {
+//                    System.out.println("Xoá Thành công");
+//                } else {
+//                    System.out.println("KO xoá thành công");
+//                }
+//                break;
+//
+//            case 3:
+//                for (User u : users) {
+//                    System.out.println(u);;
+//                }
+//                break;
+//
+//            case 4:
+//                System.out.println("Đã thoát chương trình");
+//                break;
+//                default:
+//                    System.out.println("Tiếp tục chọn chức năng");
+//
 //        }
+//    }
 
+//          while (true)
+//          {
+//              System.out.println("****************** MENU Quản Lý Điểm Danh ******************\n"
+//                                 "1. Thêm Sinh viên\n" +
+//                                 "2. Sửa sinh viên\n" +
+//                                 "3. Xoá sinh viên\n" +
+//                                 "4. Hiện thị danh sách sinh viên\n" +
+//                                 "5. Thoát");
+//              System.out.println("Nhập vào lựa chọn của bạn: ");
+//
+//              int c = scan.nextInt();
+//              scan.nextLine();
+//              switch (c)
+//                  {
+//                  case 1:
+//                      System.out.print("Nhập vào tên học sinh");
+//                      String name = scan.nextLine();
+//                      System.out.println("Nhập vào id học sinh");
+//                      int id = scan.nextInt();
+//
+//                      manager.add(new Student(name,id));
+//                      break;
+//
+//                  case 2:
+//                      manager.display();
+//                      System.out.println("Nhập vào id cần sửa");
+//                      int up = Integer.parseInt(scan.nextLine());
+//                      System.out.println("Nhập vào tên mới ");
+//                      String n = scan.nextLine();
+//                      manager.update(up,new Student(n,up));
+//                      break;
+//
+//                  case 3:
+//                      manager.display();
+//                      System.out.println("Nhập vào vị trí bạn muốn xoá");
+//                      int d = Integer.parseInt(scan.nextLine());
+//                      manager.delete(d);
+//                      break;
+//
+//                  case 4:
+//                      System.out.println("Hiển thị danh sách sinh viên");
+//                      manager.display();
+//                      break;
+//
+//                  case 5:
+//                      System.out.println("Đã thoát chương trình");
+//                  }
+//          }
 
-//        Payment[] payments=new Payment[3];
-//
-//        payments[0] = new CashPayment(23.000);
-//        payments[1] = new CreditCardPayment(12.000);
-//        payments[2] = new EWalletPayment(100.000);
-//
-//        for(Payment p:payments)
+//        while (true)
 //        {
+//            System.out.println("******************* MENU Quản Lý Đơn Hàng *******************\n" +
+//                               "1. Thêm Hoá Đơn\n" +
+//                               "2. Sửa Hoá Đơn\n" +
+//                               "3. Xoá Hoá Đơn\n" +
+//                               "4. Hiện Danh Sách Hoá Đơn\n" +
+//                               "5. Thoát");
+//            System.out.println("Nhập vào lựa chọn của bạn");
 //
-//            p.printAmount();
-//            p.pay();
+//            int choice = scan.nextInt();
 //
-//            if(p instanceof Refundable)
-//            {
-//                Refundable r=(Refundable)p;
-//                r.refund();
-//            }
-//        }
-
-//        Employee[] e =  new Employee[6];
-//
-//        e[0] = new PartTimeEmployee(123, "Nguyễn Văn A",4);
-//        e[1] = new FullTimeEmployee(345, "Trần Văn B");
-//        e[2] = new PartTimeEmployee(678, "Nguyễn Quang A",3);
-//        e[3] = new FullTimeEmployee(910, "Bùi Văn C");
-//        e[4] = new FullTimeEmployee(112, "Quang Văn T");
-//        e[5] = new PartTimeEmployee(224, "Nguyễn Phương L",6);
-//
-//        for(Employee e1: e)
-//        {
-//            e1.showInfo();
-//
-//            System.out.println("Salary:" + e1.calculateSalary());
-//
-//            if(e1 instanceof BonusEligible)
+//            switch (choice)
 //                {
-//                PartTimeEmployee p = (PartTimeEmployee)e1;
-//                p.calculateBonus();
+//                case 1:
+//                    System.out.println("Nhập vào id");
+//                    int id = scan.nextInt();
+//                    scan.nextLine();
+//                    System.out.println("Nhập mã hoá đơn của bạn");
+//                    String h =  scan.nextLine();
+//                    System.out.println("Nhập số tiền");
+//                    int a =  scan.nextInt();
+//                    if(a <= 0)
+//                    {
+//                        System.out.println("Vui lòng nhập số tiền lớn hơn hoặc bằng 0");
+//                    }
+//                    else
+//                    {
+//                        invoiceManager.add(new Invoice(id,a,h));
+//                        System.out.println("Nhập vào thành công");
+//                    }
+//                    break;
+//
+//                case 2:
+//                    System.out.println("Nhập vào id cần sửa");
+//                    int i = scan.nextInt();
+//                    scan.nextLine();
+//                    System.out.println("Nhập vào mã hoá đơn mới");
+//                    String m =  scan.nextLine();
+//                    System.out.println("Nhập vào số tiền mới");
+//                    int n =  scan.nextInt();
+//                    invoiceManager.update(i,new Invoice(i,n,m));
+//                    break;
+//
+//                case 3:
+//                    System.out.println("Nhập vào id hoá đơn cần xoá");
+//                    int x = scan.nextInt();
+//                    invoiceManager.delete(x);
+//                    break;
+//
+//                case 4:
+//                    System.out.println("Hiên thị danh sách hoá đơn");
+//                    invoiceManager.display();
+//                    break;
+//
+//                case 5:
+//                    System.out.println("Đã thoát chương trình");
+//                    break;
+//                }
+//
+//        }
+
+//        while (true)
+//        {
+//            System.out.println("********************* MENU Quản Lý Đơn Hàng *********************\n" +
+//                               "1. Thêm đơn hàng\n" +
+//                               "2. Sửa đơn hàng\n" +
+//                               "3. Xoá đơn hàng\n" +
+//                               "4. Hiện thị danh sách đơn hàng\n" +
+//                               "5. Thoát");
+//            System.out.println("nhập vào lựa chọn của bạn");
+//            int choice = scan.nextInt();
+//
+//            switch (choice)
+//                {
+//                case 1:
+//                    System.out.println("Nhập vào id");
+//                    int id = scan.nextInt();
+//                    scan.nextLine();
+//                    System.out.println("Nhập vào tên khách hàng");
+//                    String name = scan.nextLine();
+//
+//                    ordermanger.add(new Order(name,id));
+//                    break;
+//
+//                case 2:
+//                    System.out.println("Nhập vào id cần chỉnh sửa");
+//                    int a = scan.nextInt();
+//                    scan.nextLine();
+//                    System.out.println("Nhập vào tên mới");
+//                    String b = scan.nextLine();
+//                    ordermanger.update(a,new Order(b,a));
+//                    break;
+//
+//                case 3:
+//                    System.out.println("Nhập vào id cần xoá");
+//                    int x = scan.nextInt();
+//                    ordermanger.delete(x);
+//                    break;
+//
+//                case 4:
+//                    System.out.println("Hiển thị danh sách");
+//                    ordermanger.display();
+//                    break;
 //                }
 //        }
 
-        Device[] device = new Device[7];
+       while (true)
+       {
+           System.out.println("********************* MENU *********************\n" +
+                              "1. Nhập danh sách sinh viên\n" +
+                              "2. In danh sách sinh viên\n" +
+                              "3. Tìm kiếm sinh viên theo tên\n" +
+                              "4. Phân loại sinh viên theo GPA\n" +
+                              "0. Thoát chương trình");
+           System.out.println("Nhập vào lựa chọn của bạn");
+           int choice = scan.nextInt();
+           switch(choice)
+               {
+               case 1:
+                   System.out.println("Nhập vào id sinh viên");
+                   int n =  scan.nextInt();
+                   scan.nextLine();
+                   System.out.println("Nhập vào tên sinh viên");
+                   String name =  scan.nextLine();
+                   System.out.println("Nhập vào GPA của sinh viên");
+                   double gpa = scan.nextDouble();
 
-        device[0] = new Laptop(111,"Lap Asus");
-        device[1] = new Laptop(222,"Lap Window");
-        device[2] = new SmartPhone(333,"Nokia");
-        device[3] = new Laptop(444,"Lap Apple");
-        device[4] = new Television(555,"4D LED");
-        device[5] = new SmartPhone(666,"Apple Galaxy");
-        device[6] = new Television(777,"TV Lồi");
+                   sm.add(new Student2(n, name, gpa));
+                   break;
 
-        for(Device d:device)
-        {
-            System.out.printf("Thiết bị: %s có mã là %d\n",d.name,d.id);
+               case 2:
+                   System.out.println("Hiển thị danh sách học sinh");
+                   sm.display();
+                   System.out.println("Đã hiển thị danh sách học sinh");
+                   break;
 
-            if(d instanceof Laptop)
-            {
-                Laptop l=(Laptop)d;
-                l.turnOn();
-                l.turnOff();
-                l.charge();
-                l.connectWifi();
-            }
+               case 3:
+                   System.out.println("Nhập vào tên sinh viên cần tìm");
+                   String m = scan.nextLine();
+                   sm.search(m);
+                   break;
 
-            if(d instanceof SmartPhone)
-            {
-                SmartPhone sm=(SmartPhone)d;
-                sm.turnOn();
-                sm.turnOff();
-                sm.charge();
-                sm.connectWifi();
-            }
-
-            if(d instanceof Television)
-            {
-                Television tele=(Television)d;
-                tele.turnOff();
-                tele.turnOn();
-                tele.connectWifi();
-            }
-        }
+               case 4:
+                   System.out.println("Phân loại sinh viên");
+                   sm.classify();
+                   break;
+               }
+       }
     }
 }
