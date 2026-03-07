@@ -1,19 +1,29 @@
-package Baiseasion10;
+package Baiseasion12;
 
-public class Computer
+public class Computer extends Asset
 {
-    public double calculatePrice(double basePrice)
-    {
-        return basePrice;
+    private int ram;
+    private String cpu;
+
+    public Computer(String assetCode, String name, double purchasePrice, int ram, String cpu) {
+        super(assetCode, name, purchasePrice);
+        this.ram = ram;
+        this.cpu = cpu;
     }
 
-    public double calculatePrice(double baseVolume, double tax)
-    {
-      return baseVolume * tax;
+    @Override
+    public double getMarketValue() {
+        return purchasePrice * 0.8;
     }
 
-    public double calculatePrice(double basePrice, double tax, double discount)
-    {
-      return basePrice * tax * discount;
+    @Override
+    public String toString() {
+        return "Computer | Code: " + assetCode +
+                " | Name: " + name +
+                " | Price: " + purchasePrice +
+                " | RAM: " + ram +
+                " | CPU: " + cpu +
+                " | Value: " + getMarketValue();
     }
+
 }

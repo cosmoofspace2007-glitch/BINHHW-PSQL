@@ -1,22 +1,39 @@
+package Baiseasion17;
+
 public class Customer {
-    int id;
-    String name;
-    String email;
 
-    void showInfo(){
-        System.out.println(id);
-        System.out.println(name);
+    private int id;
+    private String name;
+    private String email;
+
+    public Customer(){}
+
+    public Customer(String name, String email){
+        this.name = name;
+        this.email = email;
     }
-}
 
-class Order extends Customer{
-      int orderId;
-      Customer customer;
-      double total;
+    public int getId() {
+        return id;
+    }
 
-      void printOrder(){
-          System.out.println("Order #"+orderId);
-          System.out.println("Customer #"+customer.id);
-          System.out.println("Total #"+total);
-      }
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }

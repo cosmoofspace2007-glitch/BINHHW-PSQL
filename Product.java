@@ -1,51 +1,46 @@
-package Baiseasion16;
+package Baiseasion18;
 
-public class Product
-{
-    private String name;
+import java.util.Date;
+
+public class Product {
+
     private int id;
-    private double price;
+    private String name;
+    private float price;
+    private String title;
+    private Date created;
+    private String catalog;
+    private boolean status;
 
-    public Product(String name, int id, double price)
-        {
+    public Product(){}
+
+    public Product(String name, float price, String title, Date created, String catalog, boolean status) {
         this.name = name;
-        this.id = id;
         this.price = price;
-        }
-
-    public String getName()
-    {
-        return name;
+        this.title = title;
+        this.created = created;
+        this.catalog = catalog;
+        this.status = status;
     }
 
-    public void setName(String name)
-    {
-        this.name = name;
-    }
+    public int getId() { return id; }
+    public void setId(int id) { this.id = id; }
 
-    public int getId()
-    {
-        return id;
-    }
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
 
-    public void setId(int id)
-    {
-        this.id = id;
-    }
+    public float getPrice() { return price; }
+    public void setPrice(float price) { this.price = price; }
 
-    public double getPrice()
-    {
-        return price;
-    }
+    public String getTitle() { return title; }
+    public void setTitle(String title) { this.title = title; }
 
-    public void setPrice(double price)
-    {
-        this.price = price;
-    }
+    public Date getCreated() { return created; }
+    public void setCreated(Date created) { this.created = created; }
 
-    @Override
-    public String toString()
-    {
-        return "Product{" + "name=" + name + ", id=" + id + ", price=" + price + '}';
-    }
+    public String getCatalog() { return catalog; }
+    public void setCatalog(String catalog) { this.catalog = catalog; }
+
+    public boolean isStatus() { return status; }
+    public void setStatus(boolean status) { this.status = status; }
 }

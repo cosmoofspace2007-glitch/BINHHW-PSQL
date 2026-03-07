@@ -1,3 +1,5 @@
+package Baiseasion3;
+
 import java.util.Scanner;
 public class baiss31 {
     public static void main(String[] args) {
