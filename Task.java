@@ -9,10 +9,11 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
-public class User
+public class Task
 {
     private int id;
-    private String username;
-    private String email;
-    private String role;
+    private String title;
+    private String description;
+    private String priority;
+    private String assignedTo;
 }

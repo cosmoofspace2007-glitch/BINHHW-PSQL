@@ -1,0 +1,30 @@
+Client: Trình duyệt sẽ gửi Request như thế nào? (URL dự kiến, HTTP Method là GET hay POST?).
+1.Lấy danh sách: GET /tasks
+2.Tìm kiếm: GET /tasks?search=abc
+3.Tạo task:
+POST /tasks
+{
+  "title": "Do homework",
+  "priority": "high",
+  "assignedTo": 1
+}
+
+
+Server: Ứng dụng Spring Boot sẽ làm gì khi nhận yêu cầu? (Xử lý logic, gọi dữ liệu ở đâu?).
+Controller:
+Nhận request (@GetMapping, @PostMapping)
+lấy param hoặc body
+
+Service:
+Xử lý logic (vd: kiểm tra user tồn tại)
+
+Repository:
+lấy dữ liệu từ danh sách (RAM)
+
+
+Database: Đóng vai trò gì trong yêu cầu này? (Tạm thời giả lập bằng bộ nhớ RAM).
+Dữ liệu lưu trong RAM, mất khi restart app
+
+
+Response: Server trả về định dạng gì cho Client? (HTML hay JSON?).
+Server trả về JSON
