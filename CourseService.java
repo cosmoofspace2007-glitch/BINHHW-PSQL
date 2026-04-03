@@ -1,51 +1,48 @@
-package com.example.product_management.Baiss3;
+package Baiss4;
 
-import lombok.RequiredArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
-
-@RestController
-@RequestMapping("/api/course")
 
 @Service
-public class CourseService
-{
+@Getter
+@Setter
+public class CourseService {
+
     private final CourseRepository courseRepository;
+    private final InstructorRepository instructorRepository;
 
-    public CourseService(CourseRepository courseRepository)
-    {
+    public CourseService(CourseRepository courseRepository,
+                         InstructorRepository instructorRepository) {
         this.courseRepository = courseRepository;
+        this.instructorRepository = instructorRepository;
     }
 
-    public List<Course> getCourses()
-    {
-        return courseRepository.findAllCourses();
+    // CREATE
+    public void createCourse(CourseCreateRequest req) {
+        Instructor instructor = instructorRepository.findById(req.getInstructorId())
+                .orElseThrow(() -> new RuntimeException("Instructor not found"));
+
+        Course course = new Course();
+        course.setTitle(req.getTitle());
+        course.setStatus(req.getStatus());
+        course.setInstructor(instructor);
+
+        courseRepository.save(course);
     }
 
-    public Course getCourseById(int id)
-    {
-        return courseRepository.findCourseById(id).orElseThrow(() -> new RuntimeException("Course not found"));
-    }
-
-    public Course createCourse(Course course)
-    {
-        return courseRepository.createCourse(course);
-    }
-
-    public Course updateCourse(int id, Course course)
-    {
-        courseRepository.findCourseById(id)
+    // UPDATE
+    public void updateCourse(Long id, CourseUpdateRequest req) {
+        Course course = courseRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Course not found"));
-        return courseRepository.updateCourse(id,course);
-    }
 
-    public Course deleteCourse(int id)
-    {
-        courseRepository.findCourseById(id)
-                .orElseThrow(() -> new RuntimeException("Course not found"));
-        return courseRepository.deleteCourseById(id);
+        Instructor instructor = instructorRepository.findById(req.getInstructorId())
+                .orElseThrow(() -> new RuntimeException("Instructor not found"));
+
+        course.setTitle(req.getTitle());
+        course.setStatus(req.getStatus());
+        course.setInstructor(instructor);
+
+        courseRepository.save(course);
     }
 }

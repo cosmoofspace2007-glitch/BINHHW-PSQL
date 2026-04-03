@@ -1,40 +1,26 @@
-package Baiseasion9;
+package Baiss4;
 
+import jakarta.persistence.*;
+import lombok.*;
+
+import java.util.List;
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@Table(name = "students")
+@Entity
 public class Student
 {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String fullName;
-    private int age;
-    private double gpa;
+    @Column(nullable = false)
+    private String name;
+    @Column(nullable = false)
+    private String email;
 
-    private static int count = 0;
-
-    public static final double MIN_GPA = 0.0;
-    public static final double MAX_GPA = 4.0;
-
-    public Student(int id, String fullName, int age, double gpa) {
-        this.id = id;
-        this.fullName = fullName;
-        this.age = age;
-
-        if (gpa >= MIN_GPA && gpa <= MAX_GPA) {
-            this.gpa = gpa;
-        } else {
-            this.gpa = MIN_GPA;
-        }
-
-        count++;
-    }
-
-    public void printInfo() {
-        System.out.println("ID: " + id);
-        System.out.println("Name: " + fullName);
-        System.out.println("Age: " + age);
-        System.out.println("GPA: " + gpa);
-        System.out.println("---------------------");
-    }
-
-    public static int getCount() {
-        return count;
-    }
+    @OneToMany(mappedBy = "students")
+    private List<StudentEnrollment> enrollments;
 }

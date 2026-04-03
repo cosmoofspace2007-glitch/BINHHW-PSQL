@@ -1,18 +1,33 @@
-package com.example.product_management.Baiss3;
+package Baiss4;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.*;
 
-@NoArgsConstructor
+import java.util.List;
+
+@Entity
 @AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
+@Table(name = "course")
 public class Course
 {
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
+    private CourseStatus status;
+    @Column(nullable = false)
+    private long instructorId;
     private String title;
-    private String status;
-    private String instructorId;
+
+    @ManyToOne
+    @JoinColumn(name = "instructor_id")
+    private Instructor instructor;
+
+    @OneToMany(mappedBy = "course")
+    private List<StudentEnrollment> enrollments;
+
 }

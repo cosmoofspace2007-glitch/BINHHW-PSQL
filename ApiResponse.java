@@ -1,17 +1,10 @@
-package com.example.product_management.Baiss3;
+package Baiss4;
 
-import lombok.AllArgsConstructor;
-
-
-public class ApiResponse<T>
-{
-    private boolean success;
+public class ApiResponse<T> {
     private String message;
     private T data;
 
-    public ApiResponse(boolean success, String message, T data)
-    {
-        this.success = success;
+    public ApiResponse(String message, T data) {
         this.message = message;
         this.data = data;
     }

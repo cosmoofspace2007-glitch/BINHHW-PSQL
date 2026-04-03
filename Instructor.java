@@ -1,28 +1,25 @@
-package com.example.product_management.Baiss3;
-//Thiết kế 3 lớp model:
-//Instructor       (id, name, email)
-//Course          (id, title, status, instructorId)
-//Enrollment     (id, studentName, courseId)
-//Khởi tạo dự án với kiến trúc đa tầng:
-//Dự án cần phải có các tầng cơ bản model, controller, service, repository
-//Sử dụng các annotation @Controller, @Service, @Repository để khởi tạo bean.
-//Sử dụng @Autowired trên Constructor Inject (không Field Inject)
-//Chuẩn bị dữ liệu:
-//Ở tầng repo, chuẩn bị dữ liệu cho từng model.
-//Mỗi model ít nhất 2 bản ghi.
+package Baiss4;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.*;
 
-@NoArgsConstructor
-@AllArgsConstructor
+import java.util.List;
+
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Table(name = "instructor")
+@Entity
 public class Instructor
 {
-    private int id;
-    private String instructorName;
-    private String instructorEmail;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private long id;
+  @Column(nullable = false,length = 100)
+  private String name;
+  private String email;
+
+  @OneToMany(mappedBy = "instructor")
+  private List<Course> courses;
 }
