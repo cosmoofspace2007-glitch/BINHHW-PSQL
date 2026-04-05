@@ -1,16 +1,22 @@
-package Baiss4;
+package Baiss6;
 
-public class ApiResponse<T> {
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
+
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class ApiResponse<T>
+{
+    private Boolean code;
     private String message;
     private T data;
 
-    public ApiResponse(String message, T data) {
-        this.message = message;
-        this.data = data;
-    }
-
-    public ApiResponse(boolean b, String getCoursesByStatusSuccessfully, PageResponse<CourseResponse> pagedCourses)
-    {
-
-    }
 }
