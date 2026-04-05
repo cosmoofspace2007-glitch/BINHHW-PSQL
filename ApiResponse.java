@@ -8,4 +8,9 @@ public class ApiResponse<T> {
         this.message = message;
         this.data = data;
     }
+
+    public ApiResponse(boolean b, String getCoursesByStatusSuccessfully, PageResponse<CourseResponse> pagedCourses)
+    {
+
+    }
 }

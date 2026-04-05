@@ -1,7 +1,13 @@
 package Baiss4;
 
+import org.hibernate.query.SortDirection;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import static org.springframework.data.domain.Sort.Direction.DESC;
 
 @RestController
 @RequestMapping("/courses")
@@ -24,5 +30,26 @@ public class CourseController {
                                                     @RequestBody CourseUpdateRequest req) {
         courseService.updateCourse(id, req);
         return ResponseEntity.ok(new ApiResponse<>("Update course success", null));
+    }
+
+    @GetMapping("/courses/filter")
+    public ResponseEntity<ApiResponse<PageResponse<CourseResponse>>> getCoursesByStatus(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size,
+            @RequestParam(required = false) String sortBy,
+            @RequestParam(defaultValue = "DESC") Sort.Direction direction,
+            @RequestParam(defaultValue = "ACTIVE") CourseStatus status
+    )
+    {
+        return ResponseEntity.ok(new ApiResponse<>(true,"Get courses by status successfully",courseService.getPagedCourses(page, size, sortBy, direction, status)));
+    }
+
+    @GetMapping
+    public ResponseEntity<Page<CourseResponseV2>> getAllCoursesV2(
+            @RequestParam CourseStatus status,
+            Pageable pageable) {
+
+        Page<CourseResponseV2> response = courseService.getCoursesByStatus(status, pageable);
+        return ResponseEntity.ok(response);
     }
 }
